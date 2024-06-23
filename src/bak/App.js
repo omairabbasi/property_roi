@@ -1,15 +1,14 @@
 import React, { useState, useRef } from "react";
-import { BrowserRouter as Router, Route, Routes, useNavigate } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, useHistory } from "react-router-dom";
 import { LoadScript, StandaloneSearchBox } from "@react-google-maps/api";
 import FormPage from "./FormPage";
 
 const libraries = ["places"];
 const googleMapsApiKey = "AIzaSyCEzFC-wacNtzmFP-LWP5d0GBQoWYV8Ox4"; // Replace with your API key
 
-const Home = () => {
+function App() {
   const [address, setAddress] = useState("");
   const searchBox = useRef(null);
-  const navigate = useNavigate();
 
   const onLoad = (ref) => {
     searchBox.current = ref;
@@ -20,7 +19,6 @@ const Home = () => {
     const place = places[0];
     if (place) {
       setAddress(place.formatted_address);
-      navigate("/form", { state: { address: place.formatted_address } });
     }
   };
 
@@ -46,18 +44,10 @@ const Home = () => {
           />
         </StandaloneSearchBox>
       </LoadScript>
+      <div>
+        <p>Selected Address: {address}</p>
+      </div>
     </div>
-  );
-};
-
-function App() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/form" element={<FormPage />} />
-      </Routes>
-    </Router>
   );
 }
 
