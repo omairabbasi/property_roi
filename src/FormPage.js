@@ -1,61 +1,55 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import './FormPage.css';  // Import the CSS file
 
 const FormPage = () => {
   const location = useLocation();
   const { address } = location.state || {};
+  const handleRecalculate = () => {
+    // Placeholder function for recalculation logic
+    alert("Recalculate button clicked!");
+  };
 
   return (
-    <div style={{ padding: "50px" }}>
+    <div className="form-container">
       <h2>Selected Address: {address}</h2>
-      <form>
-        <div>
-          <label>
-            Field 1:
-            <input type="text" name="field1" />
-          </label>
+      <form className="aligned-form">
+        <div className="form-group">
+          <label>Cap Rate:</label>
+          <input type="text" name="capRate" />
         </div>
-        <div>
-          <label>
-            Field 2:
-            <input type="text" name="field2" />
-          </label>
+        <div className="form-group">
+          <label>Purchase Price:</label>
+          <input type="text" name="purchasePrice" />
         </div>
-        <div>
-          <label>
-            Field 3:
-            <input type="text" name="field3" />
-          </label>
+        <div className="form-group">
+          <label>Monthly HOA:</label>
+          <input type="text" name="monthlyHOA" />
         </div>
-        <div>
-          <label>
-            Field 4:
-            <input type="text" name="field4" />
-          </label>
+        <div className="form-group">
+          <label>Yearly Text:</label>
+          <input type="text" name="yearlyText" />
         </div>
-        <div>
-          <label>
-            Field 5:
-            <input type="text" name="field5" />
-          </label>
+        <div className="form-group">
+          <label>Yearly Insurance:</label>
+          <input type="text" name="yearlyInsurance" />
         </div>
-        <div>
-          <label>
-            Field 6:
-            <input type="text" name="field6" />
-          </label>
+        <div className="form-group">
+          <label>Property Management Percentage:</label>
+          <input type="text" name="propertyManagementPercentage" />
         </div>
-        <div>
-          <label>
-            Field 7:
-            <input type="text" name="field7" />
-          </label>
+        <div className="form-group">
+          <label>Yearly Maintenance:</label>
+          <input type="text" name="yearlyMaintenance" />
         </div>
-        <div>
-          <label>
-            Field 8:
-            <input type="text" name="field8" />
-          </label>
+        <div className="form-group">
+          <label>Monthly Rent:</label>
+          <input type="text" name="monthlyRent" />
+        </div>
+        <div className="form-group">
+          <button type="button" onClick={handleRecalculate}>
+            Recalculate
+          </button>
         </div>
       </form>
     </div>
