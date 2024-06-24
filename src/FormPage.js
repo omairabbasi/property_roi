@@ -8,13 +8,14 @@ const FormPage = () => {
 
   const [formData, setFormData] = useState({
     capRate: '',
-    purchasePrice: '',
+    propertyPrice: '',
     monthlyHOA: '',
-    yearlyText: '',
+    propertyTax: '',
     yearlyInsurance: '',
-    propertyManagementPercentage: '',
+    managementFeePercentage: '',
     yearlyMaintenance: '',
     monthlyRent: '',
+    vacancyRate:'',
     propertyAddress: address
   });
 
@@ -68,7 +69,7 @@ const FormPage = () => {
         </div>
         <div className="form-group">
           <label>Purchase Price:</label>
-          <input type="text" name="purchasePrice" value={formData.purchasePrice} onChange={handleChange} />
+          <input type="text" name="propertyPrice" value={formData.purchasePrice} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label>Monthly HOA:</label>
@@ -76,7 +77,7 @@ const FormPage = () => {
         </div>
         <div className="form-group">
           <label>Yearly Text:</label>
-          <input type="text" name="yearlyText" value={formData.yearlyText} onChange={handleChange} />
+          <input type="text" name="propertyTax" value={formData.yearlyText} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label>Yearly Insurance:</label>
@@ -84,7 +85,7 @@ const FormPage = () => {
         </div>
         <div className="form-group">
           <label>Property Management Percentage:</label>
-          <input type="text" name="propertyManagementPercentage" value={formData.propertyManagementPercentage} onChange={handleChange} />
+          <input type="text" name="managementFeePercentage" value={formData.propertyManagementPercentage} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label>Yearly Maintenance:</label>
@@ -93,6 +94,10 @@ const FormPage = () => {
         <div className="form-group">
           <label>Monthly Rent:</label>
           <input type="text" name="monthlyRent" value={formData.monthlyRent} onChange={handleChange} />
+        </div>
+        <div className="form-group">
+          <label>Vacancy Rate:</label>
+          <input type="text" name="vacancyRate" value={formData.vacancyRate} onChange={handleChange} />
         </div>
         <div className="form-group">
           <button type="button" onClick={handleRecalculate}>
