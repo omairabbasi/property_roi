@@ -38,7 +38,7 @@ const FormPage = () => {
       headers: {
         'Content-Type': 'application/json'
       },
-      // no body is passed in the request
+      // No body is sent in the request
     };
   
     console.log('Full request:', url, requestOptions);
@@ -51,12 +51,28 @@ const FormPage = () => {
         throw new Error(`Network response was not ok: ${errorText}`);
       }
   
-      const data = await response.json();
-      alert(`Recalculate successful: ${JSON.stringify(data)}`);
+      const responseData = await response.json();
+      alert(`Recalculate successful`);
+  
+      // Update form fields with responseData
+      updateFormFields(responseData);
     } catch (error) {
       console.error('Error during fetch:', error);
       alert(`Recalculate failed: ${error.message}`);
     }
+  };
+  
+  const updateFormFields = (data) => {
+    // Assuming data keys match form input names
+    Object.keys(data).forEach(key => {
+      if (formData.hasOwnProperty(key)) {
+        formData[key] = data[key];
+      }
+    });
+  
+    // Update form state or re-render form component to reflect changes
+    // Example: Update state in a React component
+    setFormData({ ...formData });
   };
   
   return (
